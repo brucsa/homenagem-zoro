@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(img/background.jpg);
+    background-size: cover;
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    transform-style: preserve-3d; /* Permite que os filhos tenham efeitos 3D reais. */
+    animation: animate 20s linear infinite; /* Aplica a rotação infinita com 20s de duração. */
+}
+
+@keyframes animate {
+    0% { /* Profundidade ao efeito 3D — quanto menor o número, mais forte a perspectiva. */
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg); /* Carrossel em 360°. */
+    }
+}
+.box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+    /* Faz cada imagem girar um pouco mais que a anterior, formando um círculo com 8 imagens (360° / 8 = 45°). 
+    translateZ(400px) empurra cada imagem para a frente no espaço 3D, afastando-a do centro.
+    box-reflect cria um reflexo abaixo da imagem */
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+}
+.box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
