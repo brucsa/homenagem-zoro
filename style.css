@@ -11,6 +11,9 @@ body {
     min-height: 100vh;
     background: url(img/background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .titulo {
@@ -18,9 +21,9 @@ body {
     top: 10px;
     font-size: 2rem;
     color: rgb(16, 64, 10);
-  font-family: "Gochi Hand", cursive;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Gochi Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 img {
@@ -31,18 +34,24 @@ img {
     position: relative;
     width: 200px;
     height: 300px;
-    transform-style: preserve-3d; /* Permite que os filhos tenham efeitos 3D reais. */
-    animation: animate 20s linear infinite; /* Aplica a rotação infinita com 20s de duração. */
+    transform-style: preserve-3d;
+    /* Permite que os filhos tenham efeitos 3D reais. */
+    animation: animate 20s linear infinite;
+    /* Aplica a rotação infinita com 20s de duração. */
 }
 
 @keyframes animate {
-    0% { /* Profundidade ao efeito 3D — quanto menor o número, mais forte a perspectiva. */
+    0% {
+        /* Profundidade ao efeito 3D — quanto menor o número, mais forte a perspectiva. */
         transform: perspective(1000px) rotateY(0deg);
     }
+
     100% {
-        transform: perspective(1000px) rotateY(360deg); /* Carrossel em 360°. */
+        transform: perspective(1000px) rotateY(360deg);
+        /* Carrossel em 360°. */
     }
 }
+
 .box span {
     position: absolute;
     top: 0;
@@ -57,6 +66,7 @@ img {
     box-reflect cria um reflexo abaixo da imagem */
     -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
 }
+
 .box span img {
     position: absolute;
     top: 0;
